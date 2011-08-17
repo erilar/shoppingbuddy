@@ -37,7 +37,7 @@ public class RecipeDbAdapter {
 		return database.insert(DATABASE_TABLE, null, initialValues);
 	}
 
-	public boolean updateTodo(long rowId, String name, String description, int barcode) {
+	public boolean updateRecipe(long rowId, String name, String description, int barcode) {
 		ContentValues updateValues = createContentValues(name, description, barcode);
 		return database.update(DATABASE_TABLE, updateValues, KEY_ROWID + "=" + rowId, null) > 0;
 	}

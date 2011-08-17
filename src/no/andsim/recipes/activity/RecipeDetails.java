@@ -7,13 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class RecipeDetails  extends Activity {
+public class RecipeDetails extends Activity {
 	private EditText mNameText;
 	private EditText mBodyText;
 	private Long mRowId;
 	private RecipeDbAdapter mDbHelper;
-	
+
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
@@ -26,16 +27,19 @@ public class RecipeDetails  extends Activity {
 		Button confirmButton = (Button) findViewById(R.id.recipe_edit_button);
 		mRowId = null;
 		Bundle extras = getIntent().getExtras();
-		mRowId = (bundle == null) ? null : (Long) bundle
-				.getSerializable(RecipeDbAdapter.KEY_ROWID);
+		mRowId = (bundle == null) ? null : (Long) bundle.getSerializable(RecipeDbAdapter.KEY_ROWID);
 		if (extras != null) {
 			mRowId = extras.getLong(RecipeDbAdapter.KEY_ROWID);
 		}
 		populateFields();
 		confirmButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
+				if (mNameText.getText().toString().length() < 1) {
+					Toast.makeText(getApplicationContext(), "You need to fill in a name", Toast.LENGTH_SHORT).show();
+				} else {
 				setResult(RESULT_OK);
 				finish();
+				}
 			}
 
 		});
@@ -45,11 +49,9 @@ public class RecipeDetails  extends Activity {
 		if (mRowId != null) {
 			Cursor todo = mDbHelper.fetchRecipe(mRowId);
 			startManagingCursor(todo);
-			
-			mNameText.setText(todo.getString(todo
-					.getColumnIndexOrThrow(RecipeDbAdapter.KEY_NAME)));
-			mBodyText.setText(todo.getString(todo
-					.getColumnIndexOrThrow(RecipeDbAdapter.KEY_DESCRIPTION)));
+
+			mNameText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_NAME)));
+			mBodyText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_DESCRIPTION)));
 		}
 	}
 
@@ -74,15 +76,15 @@ public class RecipeDetails  extends Activity {
 	private void saveState() {
 		String name = mNameText.getText().toString();
 		String description = mBodyText.getText().toString();
-		
 
 		if (mRowId == null) {
-			long id = mDbHelper.createRecipe(name, description,0);
+			long id = mDbHelper.createRecipe(name, description, 0);
 			if (id > 0) {
 				mRowId = id;
 			}
 		} else {
-			mDbHelper.updateTodo(mRowId,name, description,0);
+			mDbHelper.updateRecipe(mRowId, name, description, 0);
 		}
+
 	}
 }
