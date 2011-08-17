@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, RecepiesActivity!</string>
-    <string name="app_name">Recepies</string>
+    <string name="app_name">Recipes</string>
+    <string name="header">Start Menu</string>
+    <string name="newRecipesBtnTxt">New Recipe</string>
+    <string name="showRecipesBtnTxt">Show Recipes</string>
+    <string name="no_recipes">Currently there are no Recipes</string>
+    <string name="menu_insert">Add Recipe</string>
+    <string name="menu_delete">Delete Recipe</string>
+    <string name="recipe_name">Name</string>
+    <string name="recipe_description">Description</string>
+    <string name="recipe_edit_name">Name</string>
+    <string name="recipe_edit_description">Description</string>
+    <string name="recipe_edit_confirm">Confirm</string>
+    <color name="listcolor">#FFE87C</color>
+    <color name="black">#000000</color>
 </resources>

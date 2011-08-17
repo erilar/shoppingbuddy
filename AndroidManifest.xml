@@ -6,13 +6,33 @@
     <uses-sdk android:minSdkVersion="10" />
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".RecipesStartActivity"
+        <activity android:name=".StartActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+         <activity android:name=".MenuActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="no.andsim.recipes.MENU" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RecipeOverview" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="no.andsim.recipes.OVERVIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
 
+		<activity android:name=".RecipeDetails"
+			android:windowSoftInputMode="stateVisible|adjustResize">
+			<intent-filter>
+				<action android:name="no.andsim.recipes.EDIT" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
     </application>
 </manifest>
