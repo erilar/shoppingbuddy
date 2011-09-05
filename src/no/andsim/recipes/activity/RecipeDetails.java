@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,9 +15,11 @@ public class RecipeDetails extends Activity {
 	private EditText mNameText;
 	private EditText mBodyText;
 	private EditText mScanText;
+	private CheckBox mBoughtCheck;
 	private Long mRowId;
 	private RecipeDbAdapter mDbHelper;
 	private String barcode;
+	private boolean checked;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -27,7 +30,8 @@ public class RecipeDetails extends Activity {
 		mNameText = (EditText) findViewById(R.id.recipe_edit_name);
 		mBodyText = (EditText) findViewById(R.id.recipe_edit_description);
 		mScanText = (EditText) findViewById(R.id.recipe_edit_barcode);
-
+		mBoughtCheck = (CheckBox) findViewById(R.id.bought_check);
+		
 		Button confirmButton = (Button) findViewById(R.id.recipe_edit_button);
 		Button scanButton = (Button) findViewById(R.id.recipe_scan_button);
 		mRowId = null;
@@ -88,6 +92,8 @@ public class RecipeDetails extends Activity {
 			mBodyText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_DESCRIPTION)));
 			mScanText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_BARCODE)));
 			barcode = todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_BARCODE));
+			checked = 1 == todo.getInt(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_CHECKED));
+			mBoughtCheck.setChecked(checked);
 		}
 	}
 
@@ -120,7 +126,7 @@ public class RecipeDetails extends Activity {
 				mRowId = id;
 			}
 		} else {
-			mDbHelper.updateRecipe(mRowId, name, description, barcode);
+			mDbHelper.updateRecipe(mRowId, name, description, barcode, checked);
 		}
 
 	}

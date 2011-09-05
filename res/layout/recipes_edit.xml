@@ -19,6 +19,7 @@
 		android:layout_height="fill_parent" android:layout_weight="1"
 		android:id="@+id/recipe_edit_description" android:hint="Description"
 		android:gravity="top"></EditText>
+	<CheckBox android:text="Bought" android:id="@+id/bought_check" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
 	<LinearLayout android:id="@+id/EditButtonLinearLayout"
 		android:orientation="horizontal" android:layout_width="fill_parent"
 		android:layout_height="wrap_content">

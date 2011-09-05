@@ -12,8 +12,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class RecipeOverview extends ListActivity{
 	private RecipeDbAdapter dbHelper;
@@ -32,6 +34,15 @@ public class RecipeOverview extends ListActivity{
 		dbHelper.open();
 		fillData();
 		registerForContextMenu(getListView());
+		Button scanButton = (Button) findViewById(R.id.check_scan_button);
+		scanButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+				intent.putExtra("SCAN_MODE", "PRODUCT_MODE");
+				startActivityForResult(intent, 0);
+			}
+
+		});
 	}
 
 	// Create the menu based on the XML defintion
@@ -101,6 +112,30 @@ public class RecipeOverview extends ListActivity{
 			Intent intent) {
 		super.onActivityResult(requestCode, resultCode, intent);
 		fillData();
+		  if (requestCode == 0) {
+		      if (resultCode == RESULT_OK) {
+		         String contents = intent.getStringExtra("SCAN_RESULT");
+		         String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+		         
+		         Toast.makeText(getApplicationContext(), "Content: "+ contents + " format: "+ format, Toast.LENGTH_SHORT).show();
+		       Cursor cRecepies = dbHelper.fetchAllRecipes();
+		       cRecepies.moveToFirst();
+		        while (cRecepies.isAfterLast() == false) {
+		            if(contents.equals(cRecepies.getString(3))){
+		            	dbHelper.updateRecipe(cRecepies.getInt(0),cRecepies.getString(1), cRecepies.getString(2),cRecepies.getString(3), true);
+		            	Toast.makeText(getApplicationContext(), "Scanned: "+ contents + " equals: "+ cRecepies.getString(3), Toast.LENGTH_SHORT).show();
+		            }
+		            cRecepies.moveToNext();
+		        }
+		        fillData();
+		         // Handle successful scan
+		        // mScanText.setText(contents);
+		         //barcode = contents;
+		         
+		      } else if (resultCode == RESULT_CANCELED) {
+		         // Handle cancel
+		      }
+		   }
 
 	}
 
@@ -108,14 +143,16 @@ public class RecipeOverview extends ListActivity{
 		cursor = dbHelper.fetchAllRecipes();
 		startManagingCursor(cursor);
 
-		String[] from = new String[] { RecipeDbAdapter.KEY_NAME };
-		int[] to = new int[] { R.id.label };
+		String[] from = new String[] { RecipeDbAdapter.KEY_NAME, RecipeDbAdapter.KEY_CHECKED };
+		int[] to = new int[] { R.id.label, R.id.row_bought_checked };
 
 		// Now create an array adapter and set it to display using our row
 		SimpleCursorAdapter notes = new SimpleCursorAdapter(this,
 				R.layout.recipes_row, cursor, from, to);
 		setListAdapter(notes);
 	}
+	
+	
 
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,

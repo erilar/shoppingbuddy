@@ -6,6 +6,7 @@ public class Recipe {
 	private String name;
 	private String description;
 	private String barcode;
+	private boolean checked;
 	
 	public int getQuantity() {
 		return quantity;
@@ -30,6 +31,12 @@ public class Recipe {
 	}
 	public void setBarcode(String barcode) {
 		this.barcode = barcode;
+	}
+	public boolean isChecked() {
+		return checked;
+	}
+	public void setChecked(boolean checked) {
+		this.checked = checked;
 	}
 	
 }
