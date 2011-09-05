@@ -115,15 +115,14 @@ public class RecipeOverview extends ListActivity{
 		  if (requestCode == 0) {
 		      if (resultCode == RESULT_OK) {
 		         String contents = intent.getStringExtra("SCAN_RESULT");
-		         String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+//		         String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
 		         
-		         Toast.makeText(getApplicationContext(), "Content: "+ contents + " format: "+ format, Toast.LENGTH_SHORT).show();
 		       Cursor cRecepies = dbHelper.fetchAllRecipes();
 		       cRecepies.moveToFirst();
 		        while (cRecepies.isAfterLast() == false) {
 		            if(contents.equals(cRecepies.getString(3))){
 		            	dbHelper.updateRecipe(cRecepies.getInt(0),cRecepies.getString(1), cRecepies.getString(2),cRecepies.getString(3), true);
-		            	Toast.makeText(getApplicationContext(), "Scanned: "+ contents + " equals: "+ cRecepies.getString(3), Toast.LENGTH_SHORT).show();
+		            	Toast.makeText(getApplicationContext(), "Scanned: "+ contents + " found: "+ cRecepies.getString(3) +" - "+ cRecepies.getString(1) , Toast.LENGTH_SHORT).show();
 		            }
 		            cRecepies.moveToNext();
 		        }
