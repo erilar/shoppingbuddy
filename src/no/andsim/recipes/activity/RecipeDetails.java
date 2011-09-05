@@ -118,6 +118,7 @@ public class RecipeDetails extends Activity {
 	private void saveState() {
 		String name = mNameText.getText().toString();
 		String description = mBodyText.getText().toString();
+		 checked = "1".equals(mBoughtCheck.getText().toString());
 		
 
 		if (mRowId == null) {
