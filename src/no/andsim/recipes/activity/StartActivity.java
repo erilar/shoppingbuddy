@@ -14,7 +14,7 @@ public class StartActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.splash);
 		Intent nextActivity = new Intent("no.andsim.recipes.MENU");
-		SplashThread logoSplash = new SplashThread(this, nextActivity, 5000);
+		SplashThread logoSplash = new SplashThread(this, nextActivity, 1000);
 		logoSplash.start();
 	}
 

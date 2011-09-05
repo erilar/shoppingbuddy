@@ -47,7 +47,7 @@ public class RecipeOverview extends ListActivity{
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.insert:
-			createTodo();
+			createRecipe();
 			return true;
 		}
 		return super.onMenuItemSelected(featureId, item);
@@ -57,7 +57,7 @@ public class RecipeOverview extends ListActivity{
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.insert:
-			createTodo();
+			createRecipe();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -76,7 +76,7 @@ public class RecipeOverview extends ListActivity{
 		return super.onContextItemSelected(item);
 	}
 
-	private void createTodo() {
+	private void createRecipe() {
 		Intent i = new Intent(this, RecipeDetails.class);
 		startActivityForResult(i, ACTIVITY_CREATE);
 	}

@@ -2,6 +2,7 @@ package no.andsim.recipes.activity;
 
 import no.andsim.recipes.database.RecipeDbAdapter;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +13,10 @@ import android.widget.Toast;
 public class RecipeDetails extends Activity {
 	private EditText mNameText;
 	private EditText mBodyText;
+	private EditText mScanText;
 	private Long mRowId;
 	private RecipeDbAdapter mDbHelper;
+	private String barcode;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -23,8 +26,10 @@ public class RecipeDetails extends Activity {
 		setContentView(R.layout.recipes_edit);
 		mNameText = (EditText) findViewById(R.id.recipe_edit_name);
 		mBodyText = (EditText) findViewById(R.id.recipe_edit_description);
+		mScanText = (EditText) findViewById(R.id.recipe_edit_barcode);
 
 		Button confirmButton = (Button) findViewById(R.id.recipe_edit_button);
+		Button scanButton = (Button) findViewById(R.id.recipe_scan_button);
 		mRowId = null;
 		Bundle extras = getIntent().getExtras();
 		mRowId = (bundle == null) ? null : (Long) bundle.getSerializable(RecipeDbAdapter.KEY_ROWID);
@@ -43,8 +48,37 @@ public class RecipeDetails extends Activity {
 			}
 
 		});
+		
+		
+
+		scanButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+				intent.putExtra("SCAN_MODE", "PRODUCT_MODE");
+				startActivityForResult(intent, 0);
+			}
+
+		});
 	}
 
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		   if (requestCode == 0) {
+		      if (resultCode == RESULT_OK) {
+		         String contents = intent.getStringExtra("SCAN_RESULT");
+		         String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+		         
+		         Toast.makeText(getApplicationContext(), "Content: "+ contents + " format: "+ format, Toast.LENGTH_SHORT).show();
+		         // Handle successful scan
+		         mScanText.setText(contents);
+		         barcode = contents;
+		         
+		      } else if (resultCode == RESULT_CANCELED) {
+		         // Handle cancel
+		      }
+		   }
+		}
+
+	
 	private void populateFields() {
 		if (mRowId != null) {
 			Cursor todo = mDbHelper.fetchRecipe(mRowId);
@@ -52,6 +86,8 @@ public class RecipeDetails extends Activity {
 
 			mNameText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_NAME)));
 			mBodyText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_DESCRIPTION)));
+			mScanText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_BARCODE)));
+			barcode = todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_BARCODE));
 		}
 	}
 
@@ -76,14 +112,15 @@ public class RecipeDetails extends Activity {
 	private void saveState() {
 		String name = mNameText.getText().toString();
 		String description = mBodyText.getText().toString();
+		
 
 		if (mRowId == null) {
-			long id = mDbHelper.createRecipe(name, description, 0);
+			long id = mDbHelper.createRecipe(name, description, barcode);
 			if (id > 0) {
 				mRowId = id;
 			}
 		} else {
-			mDbHelper.updateRecipe(mRowId, name, description, 0);
+			mDbHelper.updateRecipe(mRowId, name, description, barcode);
 		}
 
 	}

@@ -5,7 +5,7 @@ public class Recipe {
 	private int quantity;
 	private String name;
 	private String description;
-	private int barcode;
+	private String barcode;
 	
 	public int getQuantity() {
 		return quantity;
@@ -25,10 +25,10 @@ public class Recipe {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getBarcode() {
+	public String getBarcode() {
 		return barcode;
 	}
-	public void setBarcode(int barcode) {
+	public void setBarcode(String barcode) {
 		this.barcode = barcode;
 	}
 	

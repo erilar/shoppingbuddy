@@ -32,12 +32,12 @@ public class RecipeDbAdapter {
 		dbHelper.close();
 	}
 
-	public long createRecipe(String name, String description, int barcode) {
+	public long createRecipe(String name, String description, String barcode) {
 		ContentValues initialValues = createContentValues(name, description, barcode);
 		return database.insert(DATABASE_TABLE, null, initialValues);
 	}
 
-	public boolean updateRecipe(long rowId, String name, String description, int barcode) {
+	public boolean updateRecipe(long rowId, String name, String description, String barcode) {
 		ContentValues updateValues = createContentValues(name, description, barcode);
 		return database.update(DATABASE_TABLE, updateValues, KEY_ROWID + "=" + rowId, null) > 0;
 	}
@@ -59,7 +59,7 @@ public class RecipeDbAdapter {
 			return mCursor;
 	}
 
-	private ContentValues createContentValues(String name, String description, int barcode) {
+	private ContentValues createContentValues(String name, String description, String barcode) {
 		ContentValues values = new ContentValues();
 		values.put(KEY_NAME, name);
 		values.put(KEY_DESCRIPTION, description);
