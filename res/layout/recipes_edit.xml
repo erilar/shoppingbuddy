@@ -11,7 +11,7 @@
 			android:hint="Name"></EditText>
 		<EditText android:layout_height="wrap_content" android:id="@+id/recipe_edit_barcode"
 			android:layout_weight="1" android:layout_width="fill_parent"
-			android:hint="Barcode"></EditText>
+			android:hint="Barcode" android:enabled="false"></EditText>
 	</LinearLayout>
 
 
