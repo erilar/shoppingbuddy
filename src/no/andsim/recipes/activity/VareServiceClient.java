@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 public class VareServiceClient extends Activity {
 	private static final String NAMESPACE = "http://service.andsim.no/";
-	private static String URL = "http://172.16.9.177:9090/vareservice-1.0-SNAPSHOT/HelloWorld?wsdl";
+	private static String URL = "http://172.16.9.177:9090/HelloWorld?wsdl";
 	private static final String METHOD_NAME = "sayHi";
 	private static final String SOAP_ACTION = "http://service.andsim.no/sayHi";
 
@@ -33,7 +33,7 @@ public class VareServiceClient extends Activity {
 		PropertyInfo propInfo = new PropertyInfo();
 		propInfo.name = "arg0";
 		propInfo.type = PropertyInfo.STRING_CLASS;
-		propInfo.setValue("John Smith");
+		propInfo.setValue("Simon");
 		request.addProperty(propInfo);
 		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 		envelope.setOutputSoapObject(request);
