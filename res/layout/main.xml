@@ -14,4 +14,5 @@
     />
 <Button android:text="@string/showRecipesBtnTxt" android:id="@+id/showRecipesBtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
 <Button android:text="@string/newRecipesBtnTxt" android:id="@+id/newRecipesBtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+<Button android:text="ServiceTest" android:id="@+id/serviceBtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
 </LinearLayout>

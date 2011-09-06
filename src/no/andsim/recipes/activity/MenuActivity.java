@@ -31,14 +31,14 @@ public class MenuActivity extends Activity {
 				}
 			});
 		 
-//		 Button newRecipeBtn = (Button) findViewById(R.id.);
-//		 newRecipeBtn.setOnClickListener(new View.OnClickListener() {
-//				
-//				@Override
-//				public void onClick(View v) {
-//					startActivity(new Intent("no.andsim.recipes.EDIT"));					
-//				}
-//			});
+		 Button wsBtn = (Button) findViewById(R.id.serviceBtn);
+		 wsBtn.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent("no.andsim.recipes.VARESERVICE"));					
+				}
+			});
 	 }
 	 
 }
