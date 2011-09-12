@@ -19,8 +19,8 @@ import android.widget.TextView;
 
 public class VareServiceClient extends Activity {
 	private static final String NAMESPACE = "http://service.andsim.no/";
-	private static String URL = "http://172.16.9.190:9191/VareService?wsdl";
-			//"http://vareservice.herokuapp.com/VareService?wsdl";
+	private static String URL = //"http://172.16.9.190:9191/VareService?wsdl";
+			"http://vareservice.herokuapp.com/VareService?wsdl";
 	private static final String METHOD_NAME = "sendVare";
 	private static final String SOAP_ACTION = "http://service.andsim.no/sendVare";
 
