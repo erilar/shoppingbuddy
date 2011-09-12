@@ -3,6 +3,7 @@ package no.andsim.recipes.activity;
 import java.io.IOException;
 
 import no.andsim.recipes.activity.R;
+import no.andsim.recipes.model.Vare;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
@@ -18,22 +19,25 @@ import android.widget.TextView;
 
 public class VareServiceClient extends Activity {
 	private static final String NAMESPACE = "http://service.andsim.no/";
-	private static String URL = "http://172.16.9.177:9090/HelloWorld?wsdl";
-	private static final String METHOD_NAME = "sayHi";
-	private static final String SOAP_ACTION = "http://service.andsim.no/sayHi";
+	private static String URL = "http://172.16.9.190:9191/VareService?wsdl";
+			//"http://vareservice.herokuapp.com/VareService?wsdl";
+	private static final String METHOD_NAME = "sendVare";
+	private static final String SOAP_ACTION = "http://service.andsim.no/sendVare";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 
+		Vare vare = new Vare(123123L, "Tran");
+		
 		setContentView(R.layout.service);
 		TextView lblResult = (TextView) findViewById(R.id.wsresult);
 		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 		PropertyInfo propInfo = new PropertyInfo();
 		propInfo.name = "arg0";
-		propInfo.type = PropertyInfo.STRING_CLASS;
-		propInfo.setValue("Simon");
+		propInfo.type = vare.getClass();
+		propInfo.setValue(vare);
 		request.addProperty(propInfo);
 		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 		envelope.setOutputSoapObject(request);
