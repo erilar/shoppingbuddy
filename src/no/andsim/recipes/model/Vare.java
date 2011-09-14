@@ -7,23 +7,23 @@ import org.ksoap2.serialization.PropertyInfo;
 
 public class Vare implements KvmSerializable {
 
-	private Long barcode;
+	private String barcode;
 	private String name;
 	
 	
 	
 	
-	public Vare(Long barcode, String name) {
+	public Vare(String barcode, String name) {
 		super();
 		this.barcode = barcode;
 		this.name = name;
 	}
 
-	public Long getBarcode() {
+	public String getBarcode() {
 		return barcode;
 	}
 
-	public void setBarcode(Long barcode) {
+	public void setBarcode(String barcode) {
 		this.barcode = barcode;
 	}
 
@@ -64,7 +64,7 @@ public class Vare implements KvmSerializable {
 	@Override
 	public void setProperty(int arg0, Object arg1) {
 		if(arg0 == 0){
-			barcode = Long.parseLong(arg1.toString());
+			barcode = arg1.toString();
 		}
 		else name = arg1.toString();
 		

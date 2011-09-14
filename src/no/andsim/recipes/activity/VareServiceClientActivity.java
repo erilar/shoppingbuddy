@@ -16,9 +16,9 @@ public class VareServiceClientActivity extends Activity {
 		VareServiceClient vareService = new VareServiceClient();
 		super.onCreate(savedInstanceState);
 
-		Vare vare = new Vare(2123123L, "Melk");
+		Vare vare = new Vare("123123123", "Melk");
 		
-		String returnMessage = vareService.sendVareToWS(vare);
+		String returnMessage = vareService.sendVareToWS(vare).toString();
 		lblResult.setText(returnMessage);
 		
 

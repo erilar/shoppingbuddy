@@ -21,7 +21,7 @@ public class VareServiceClient {
 	private static final String SOAP_ACTION = "http://service.andsim.no/sendVare";
 
 
-	public String sendVareToWS(Vare vare) {
+	public Boolean sendVareToWS(Vare vare) {
 		
 		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 		PropertyInfo propInfo = new PropertyInfo();
@@ -38,7 +38,7 @@ public class VareServiceClient {
 			androidHttpTransport.call(SOAP_ACTION, envelope);
 			SoapPrimitive  resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
 			String returnMessage = resultsRequestSOAP.toString();
-			return returnMessage;
+			return new Boolean(returnMessage);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (XmlPullParserException e) {

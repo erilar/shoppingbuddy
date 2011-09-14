@@ -1,6 +1,8 @@
 package no.andsim.recipes.activity;
 
 import no.andsim.recipes.database.RecipeDbAdapter;
+import no.andsim.recipes.model.Vare;
+import no.andsim.recipes.ws.VareServiceClient;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,6 +22,7 @@ public class RecipeDetails extends Activity {
 	private RecipeDbAdapter mDbHelper;
 	private String barcode;
 	private boolean checked;
+	private static final VareServiceClient vareServiceClient = new VareServiceClient();
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -47,6 +50,7 @@ public class RecipeDetails extends Activity {
 					Toast.makeText(getApplicationContext(), "You need to fill in a name", Toast.LENGTH_SHORT).show();
 				} else {
 				setResult(RESULT_OK);
+				sendBarcodeToServer(mNameText.getText().toString());
 				finish();
 				}
 			}
@@ -119,7 +123,6 @@ public class RecipeDetails extends Activity {
 		String name = mNameText.getText().toString();
 		String description = mBodyText.getText().toString();
 		 checked = "1".equals(mBoughtCheck.getText().toString());
-		
 
 		if (mRowId == null) {
 			long id = mDbHelper.createRecipe(name, description, barcode);
@@ -130,5 +133,12 @@ public class RecipeDetails extends Activity {
 			mDbHelper.updateRecipe(mRowId, name, description, barcode, checked);
 		}
 
+	}
+
+	private void sendBarcodeToServer(String name) {
+		Vare vare = new Vare(barcode,name);
+		if(barcode != null && barcode.length()>1 && vareServiceClient.sendVareToWS(vare)){
+			Toast.makeText(getApplicationContext(), "New barcode registered on server: "+barcode +" with name "+name, Toast.LENGTH_SHORT).show();
+		}
 	}
 }
