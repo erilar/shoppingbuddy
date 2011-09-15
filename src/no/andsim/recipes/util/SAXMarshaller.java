@@ -16,11 +16,10 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class SAXMarshaller extends DefaultHandler {
 
-	
 	private Vare vare;
 
 	private List<Vare> varer = new ArrayList<Vare>();
-	
+
 	private String field;
 
 	public List<Vare> unmarshall(String input) throws Exception {
@@ -46,7 +45,7 @@ public class SAXMarshaller extends DefaultHandler {
 
 	@Override
 	public void endElement(String uri, String name, String qName) {
-		if ("".equals(uri)){
+		if ("".equals(uri)) {
 			if (qName.equals(Vare.class.getSimpleName())) {
 				varer.add(vare);
 			}
@@ -62,9 +61,9 @@ public class SAXMarshaller extends DefaultHandler {
 		try {
 			Class<?> c = vare.getClass();
 			Field cfield = c.getDeclaredField(field);
-			if(c!=null){
-			cfield.setAccessible(true);
-			cfield.set(vare, builder.toString());
+			if (c != null) {
+				cfield.setAccessible(true);
+				cfield.set(vare, builder.toString());
 			}
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
@@ -75,8 +74,7 @@ public class SAXMarshaller extends DefaultHandler {
 		} catch (NoSuchFieldException e) {
 			e.printStackTrace();
 		}
-		
-	}
 
+	}
 
 }
