@@ -11,7 +11,9 @@ public class Vare implements KvmSerializable {
 	private String name;
 	
 	
-	
+	public Vare(){
+		super();
+	}
 	
 	public Vare(String barcode, String name) {
 		super();
@@ -68,6 +70,11 @@ public class Vare implements KvmSerializable {
 		}
 		else name = arg1.toString();
 		
+	}
+
+	@Override
+	public String toString() {
+		return "Vare [barcode=" + barcode + ", name=" + name + "]";
 	}
 
 }

@@ -4,5 +4,7 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="lib" path="libs/ksoap2-android-assembly-2.5.7-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="libs/sax2r2.jar"/>
+	<classpathentry kind="lib" path="libs/xercesImpl-2.9.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
