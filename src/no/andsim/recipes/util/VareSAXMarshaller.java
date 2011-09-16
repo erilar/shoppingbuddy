@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import no.andsim.recipes.model.Vare;
+import no.andsim.recipes.model.Product;
 
 import org.apache.xerces.parsers.SAXParser;
 import org.xml.sax.Attributes;
@@ -14,15 +14,15 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class SAXMarshaller extends DefaultHandler {
+public class VareSAXMarshaller extends DefaultHandler {
 
-	private Vare vare;
+	private Product vare;
 
-	private List<Vare> varer = new ArrayList<Vare>();
+	private List<Product> varer = new ArrayList<Product>();
 
 	private String field;
 
-	public List<Vare> unmarshall(String input) throws Exception {
+	public List<Product> unmarshall(String input) throws Exception {
 
 		XMLReader xr = new SAXParser();
 		xr.setContentHandler(this);
@@ -37,8 +37,8 @@ public class SAXMarshaller extends DefaultHandler {
 	public void startElement(String uri, String name, String qName, Attributes atts) {
 		if ("".equals(uri)) {
 			field = qName;
-			if (qName.equals(Vare.class.getSimpleName())) {
-				vare = new Vare();
+			if (qName.equals(Product.class.getSimpleName())) {
+				vare = new Product();
 			}
 		}
 	}
@@ -46,7 +46,7 @@ public class SAXMarshaller extends DefaultHandler {
 	@Override
 	public void endElement(String uri, String name, String qName) {
 		if ("".equals(uri)) {
-			if (qName.equals(Vare.class.getSimpleName())) {
+			if (qName.equals(Product.class.getSimpleName())) {
 				varer.add(vare);
 			}
 		}

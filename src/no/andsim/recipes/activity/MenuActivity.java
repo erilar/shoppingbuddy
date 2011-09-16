@@ -13,21 +13,21 @@ public class MenuActivity extends Activity {
 		 super.onCreate(savedInstanceState);
 		 setContentView(R.layout.main);
 		
-		 Button overviewBtn = (Button) findViewById(R.id.showRecipesBtn);
+		 Button overviewBtn = (Button) findViewById(R.id.showItemsBtn);
 		 overviewBtn.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent("no.andsim.recipes.OVERVIEW"));					
+					startActivity(new Intent("no.andsim.recipes.SHOPPINGLIST"));					
 				}
 			});
 		 
-		 Button newRecipeBtn = (Button) findViewById(R.id.newRecipesBtn);
+		 Button newRecipeBtn = (Button) findViewById(R.id.newItemsBtn);
 		 newRecipeBtn.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent("no.andsim.recipes.EDIT"));					
+					startActivity(new Intent("no.andsim.recipes.EDIT_ITEM"));					
 				}
 			});
 		 

@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-public class RecipeOverview extends ListActivity{
+public class ShoppingList extends ListActivity{
 	private RecipeDbAdapter dbHelper;
 	private static final int ACTIVITY_CREATE = 0;
 	private static final int ACTIVITY_EDIT = 1;
@@ -28,7 +28,7 @@ public class RecipeOverview extends ListActivity{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.recipes_list);
+		setContentView(R.layout.item_list);
 		this.getListView().setDividerHeight(2);
 		dbHelper = new RecipeDbAdapter(this);
 		dbHelper.open();
@@ -88,7 +88,7 @@ public class RecipeOverview extends ListActivity{
 	}
 
 	private void createRecipe() {
-		Intent i = new Intent(this, RecipeDetails.class);
+		Intent i = new Intent(this, ItemDetails.class);
 		startActivityForResult(i, ACTIVITY_CREATE);
 	}
 
@@ -96,7 +96,7 @@ public class RecipeOverview extends ListActivity{
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		Intent i = new Intent(this, RecipeDetails.class);
+		Intent i = new Intent(this, ItemDetails.class);
 		i.putExtra(RecipeDbAdapter.KEY_ROWID, id);
 		// Activity returns an result if called with startActivityForResult
 		
@@ -147,7 +147,7 @@ public class RecipeOverview extends ListActivity{
 
 		// Now create an array adapter and set it to display using our row
 		SimpleCursorAdapter notes = new SimpleCursorAdapter(this,
-				R.layout.recipes_row, cursor, from, to);
+				R.layout.item_row, cursor, from, to);
 		setListAdapter(notes);
 	}
 	

@@ -19,9 +19,9 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".RecipeOverview" android:label="@string/app_name">
+		<activity android:name=".ShoppingList" android:label="@string/app_name">
 			<intent-filter>
-				<action android:name="no.andsim.recipes.OVERVIEW" />
+				<action android:name="no.andsim.recipes.SHOPPINGLIST" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
@@ -32,10 +32,10 @@
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".RecipeDetails"
+		<activity android:name=".ItemDetails"
 			android:windowSoftInputMode="stateVisible|adjustResize">
 			<intent-filter>
-				<action android:name="no.andsim.recipes.EDIT" />
+				<action android:name="no.andsim.recipes.EDIT_ITEM" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>

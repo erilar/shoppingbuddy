@@ -1,7 +1,7 @@
 package no.andsim.recipes.activity;
 
 import no.andsim.recipes.database.RecipeDbAdapter;
-import no.andsim.recipes.model.Vare;
+import no.andsim.recipes.model.Product;
 import no.andsim.recipes.ws.VareServiceClient;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RecipeDetails extends Activity {
+public class ItemDetails extends Activity {
 	private EditText mNameText;
 	private EditText mBodyText;
 	private EditText mScanText;
@@ -29,14 +29,14 @@ public class RecipeDetails extends Activity {
 		super.onCreate(bundle);
 		mDbHelper = new RecipeDbAdapter(this);
 		mDbHelper.open();
-		setContentView(R.layout.recipes_edit);
-		mNameText = (EditText) findViewById(R.id.recipe_edit_name);
-		mBodyText = (EditText) findViewById(R.id.recipe_edit_description);
-		mScanText = (EditText) findViewById(R.id.recipe_edit_barcode);
+		setContentView(R.layout.item_edit);
+		mNameText = (EditText) findViewById(R.id.item_edit_name);
+		mBodyText = (EditText) findViewById(R.id.item_edit_description);
+		mScanText = (EditText) findViewById(R.id.item_edit_barcode);
 		mBoughtCheck = (CheckBox) findViewById(R.id.bought_check);
 		
-		Button confirmButton = (Button) findViewById(R.id.recipe_edit_button);
-		Button scanButton = (Button) findViewById(R.id.recipe_scan_button);
+		Button confirmButton = (Button) findViewById(R.id.item_edit_button);
+		Button scanButton = (Button) findViewById(R.id.item_scan_button);
 		mRowId = null;
 		Bundle extras = getIntent().getExtras();
 		mRowId = (bundle == null) ? null : (Long) bundle.getSerializable(RecipeDbAdapter.KEY_ROWID);
@@ -136,7 +136,7 @@ public class RecipeDetails extends Activity {
 	}
 
 	private void sendBarcodeToServer(String name) {
-		Vare vare = new Vare(barcode,name);
+		Product vare = new Product(barcode,name);
 		if(barcode != null && barcode.length()>1 && vareServiceClient.sendVareToWS(vare)){
 			Toast.makeText(getApplicationContext(), "New barcode registered on server: "+barcode +" with name "+name, Toast.LENGTH_SHORT).show();
 		}

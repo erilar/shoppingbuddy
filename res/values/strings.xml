@@ -2,17 +2,17 @@
 <resources>
     <string name="app_name">Recipes</string>
     <string name="header">Start Menu</string>
-    <string name="newRecipesBtnTxt">New Recipe</string>
-    <string name="showRecipesBtnTxt">Show Recipes</string>
-    <string name="no_recipes">Currently there are no Recipes</string>
-    <string name="menu_insert">Add Recipe</string>
-    <string name="menu_delete">Delete Recipe</string>
-    <string name="recipe_name">Name</string>
-    <string name="recipe_description">Description</string>
-    <string name="recipe_edit_name">Name</string>
-    <string name="recipe_edit_description">Description</string>
-    <string name="recipe_edit_confirm">Confirm</string>
-    <string name="recipe_edit_scan">Scan barcode</string>
+    <string name="newItemsBtnTxt">New Item</string>
+    <string name="showItemsBtnTxt">Show Items</string>
+    <string name="no_items">Currently there are no Items</string>
+    <string name="menu_insert">Add Item</string>
+    <string name="menu_delete">Delete Item</string>
+    <string name="item_name">Name</string>
+    <string name="item_description">Description</string>
+    <string name="item_edit_name">Name</string>
+    <string name="item_edit_description">Description</string>
+    <string name="item_edit_confirm">Confirm</string>
+    <string name="item_edit_scan">Scan barcode</string>
     <color name="listcolor">#FFE87C</color>
     <color name="black">#000000</color>
 </resources>

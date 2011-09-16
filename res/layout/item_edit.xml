@@ -6,10 +6,10 @@
 	<LinearLayout android:id="@+id/LinearLayout01"
 		android:orientation="vertical" android:layout_height="wrap_content"
 		android:layout_width="fill_parent">
-		<EditText android:layout_height="wrap_content" android:id="@+id/recipe_edit_name"
+		<EditText android:layout_height="wrap_content" android:id="@+id/item_edit_name"
 			android:layout_weight="1" android:layout_width="fill_parent"
 			android:hint="Name"></EditText>
-		<EditText android:layout_height="wrap_content" android:id="@+id/recipe_edit_barcode"
+		<EditText android:layout_height="wrap_content" android:id="@+id/item_edit_barcode"
 			android:layout_weight="1" android:layout_width="fill_parent"
 			android:hint="Barcode" android:enabled="false"></EditText>
 	</LinearLayout>
@@ -17,16 +17,16 @@
 
 	<EditText android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:layout_weight="1"
-		android:id="@+id/recipe_edit_description" android:hint="Description"
+		android:id="@+id/item_edit_description" android:hint="Description"
 		android:gravity="top"></EditText>
 	<CheckBox android:text="Bought" android:id="@+id/bought_check" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
 	<LinearLayout android:id="@+id/EditButtonLinearLayout"
 		android:orientation="horizontal" android:layout_width="fill_parent"
 		android:layout_height="wrap_content">
-		<Button android:id="@+id/recipe_edit_button"
-			android:layout_height="wrap_content" android:text="@string/recipe_edit_confirm"
+		<Button android:id="@+id/item_edit_button"
+			android:layout_height="wrap_content" android:text="@string/item_edit_confirm"
 			android:layout_width="wrap_content"></Button>
-		<Button android:text="@string/recipe_edit_scan" android:id="@+id/recipe_scan_button"
+		<Button android:text="@string/item_edit_scan" android:id="@+id/item_scan_button"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
 	</LinearLayout>
 

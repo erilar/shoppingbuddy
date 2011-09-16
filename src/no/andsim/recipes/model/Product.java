@@ -5,17 +5,17 @@ import java.util.Hashtable;
 import org.ksoap2.serialization.KvmSerializable;
 import org.ksoap2.serialization.PropertyInfo;
 
-public class Vare implements KvmSerializable {
+public class Product implements KvmSerializable {
 
 	private String barcode;
 	private String name;
 	
 	
-	public Vare(){
+	public Product(){
 		super();
 	}
 	
-	public Vare(String barcode, String name) {
+	public Product(String barcode, String name) {
 		super();
 		this.barcode = barcode;
 		this.name = name;
@@ -54,10 +54,12 @@ public class Vare implements KvmSerializable {
 	public void getPropertyInfo(int arg0, Hashtable arg1, PropertyInfo info) {
 		if(arg0 == 0){
 			info.type = PropertyInfo.LONG_CLASS;
+			info.namespace = "http://andsim.vareservice.no/Vare";
             info.name = "barcode";
 		}
 		else{
 			info.type= PropertyInfo.STRING_CLASS;
+			info.namespace = "http://andsim.vareservice.no/Vare";
 			info.name="name";
 		}
 		
