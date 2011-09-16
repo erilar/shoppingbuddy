@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Recipes</string>
+    <string name="item_list_header">Shopping List</string>
+    <string name="new_item_header">Register New Item or Product</string>
     <string name="header">Start Menu</string>
     <string name="newItemsBtnTxt">New Item</string>
-    <string name="showItemsBtnTxt">Show Items</string>
+    <string name="showItemsBtnTxt">Shopping List</string>
+    <string name="remoteItemListBtnTxt">Items on Server</string>
     <string name="no_items">Currently there are no Items</string>
     <string name="menu_insert">Add Item</string>
     <string name="menu_delete">Delete Item</string>
