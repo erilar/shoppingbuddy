@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Recipes</string>
+    <string name="app_name">Handle Buddy</string>
     <string name="item_list_header">Shopping List</string>
     <string name="new_item_header">Register New Item or Product</string>
     <string name="header">Start Menu</string>
