@@ -23,7 +23,7 @@ public class ItemDetails extends Activity {
 	private RecipeDbAdapter mDbHelper;
 	private String barcode;
 	private boolean checked;
-	private static final ProductWSClient vareServiceClient = new ProductWSClient();
+	private static final ProductWSClient productWSClient = new ProductWSClient();
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -138,7 +138,7 @@ public class ItemDetails extends Activity {
 
 	private void sendBarcodeToServer(String name) {
 		Product vare = new Product(barcode,name);
-		if(barcode != null && barcode.length()>1 && vareServiceClient.sendProductToWS(vare)){
+		if(barcode != null && barcode.length()>1 && productWSClient.sendProductToWS(vare)){
 			Toast.makeText(getApplicationContext(), "New barcode registered on server: "+barcode +" with name "+name, Toast.LENGTH_SHORT).show();
 		}
 	}

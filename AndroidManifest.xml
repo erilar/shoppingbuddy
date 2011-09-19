@@ -39,6 +39,6 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<service android:name=".service.ProductServicervice"/>
+		<service android:name=".service.ProductService"/>
 	</application>
 </manifest>
