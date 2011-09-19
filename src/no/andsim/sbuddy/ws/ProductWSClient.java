@@ -1,8 +1,8 @@
-package no.andsim.recipes.ws;
+package no.andsim.sbuddy.ws;
 
 import java.io.IOException;
 
-import no.andsim.recipes.model.Product;
+import no.andsim.sbuddy.model.Product;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
@@ -12,16 +12,16 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
-public class VareServiceClient {
+public class ProductWSClient {
 	
 	private static final String NAMESPACE = "http://service.andsim.no/";
-	private static String URL = //"http://172.16.9.190:9191/VareService?wsdl";
-			"http://vareservice.herokuapp.com/VareService?wsdl";
-	private static final String METHOD_NAME = "sendVare";
-	private static final String SOAP_ACTION = "http://service.andsim.no/sendVare";
+	private static String URL = //"http://172.16.9.190:9191/ProductService?wsdl";
+			"http://vareservice.herokuapp.com/ProductService?wsdl";
+	private static final String METHOD_NAME = "sendProduct";
+	private static final String SOAP_ACTION = "http://service.andsim.no/sendProduct";
 
 
-	public Boolean sendVareToWS(Product vare) {
+	public Boolean sendProductToWS(Product vare) {
 		
 		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 		PropertyInfo propInfo = new PropertyInfo();

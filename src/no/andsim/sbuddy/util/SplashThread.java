@@ -1,4 +1,4 @@
-package no.andsim.recipes.util;
+package no.andsim.sbuddy.util;
 
 import android.app.Activity;
 import android.content.Intent;

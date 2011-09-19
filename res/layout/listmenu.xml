@@ -2,4 +2,6 @@
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:id="@+id/insert" android:title="Insert"></item>
+<item android:id="@+id/startService" android:title="StartService" android:icon="@android:drawable/ic_media_play"></item>
+<item android:id="@+id/stopService" android:title="StopService" android:icon="@android:drawable/ic_media_pause"></item>
 </menu>

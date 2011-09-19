@@ -1,11 +1,12 @@
-package no.andsim.recipes.activity;
+package no.andsim.sbuddy.activity;
 
-import no.andsim.recipes.ws.VareServiceClientRS;
+import no.andsim.sbuddy.activity.R;
+import no.andsim.sbuddy.ws.ProductWSClientRS;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class VareServiceClientActivity extends Activity {
+public class WSClientActivity extends Activity {
 	
 	
 	@Override
@@ -14,7 +15,7 @@ public class VareServiceClientActivity extends Activity {
 		TextView lblResult = (TextView) findViewById(R.id.wsresult);
 		super.onCreate(savedInstanceState);
 
-		String returnMessage = VareServiceClientRS.connect("http://vareservice.herokuapp.com/VareServiceRS/varer");
+		String returnMessage = ProductWSClientRS.connect("http://vareservice.herokuapp.com/ProductServiceRS/products");
 	
 		lblResult.setText(returnMessage);
 		

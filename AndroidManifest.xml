@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="no.andsim.recipes.activity" android:versionCode="1"
+	package="no.andsim.sbuddy.activity" android:versionCode="1"
 	android:versionName="1.0">
 	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
 	<uses-sdk android:minSdkVersion="10" />
@@ -15,29 +15,30 @@
 		</activity>
 		<activity android:name=".MenuActivity" android:label="@string/app_name">
 			<intent-filter>
-				<action android:name="no.andsim.recipes.MENU" />
+				<action android:name="no.andsim.sbuddy.MENU" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".ShoppingList" android:label="@string/item_list_header">
+		<activity android:name=".ProductList" android:label="@string/item_list_header">
 			<intent-filter>
-				<action android:name="no.andsim.recipes.SHOPPINGLIST" />
+				<action android:name="no.andsim.sbuddy.PRODUCTLIST" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".VareServiceClientActivity" android:label="@string/app_name">
+		<activity android:name=".WSClientActivity" android:label="@string/app_name">
 			<intent-filter>
-				<action android:name="no.andsim.recipes.VARESERVICE" />
+				<action android:name="no.andsim.sbuddy.PRODUCTSERVICE" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".ItemDetails" android:label="@string/new_item_header"
+		<activity android:name="no.andsim.sbuddy.activity.ItemDetails" android:label="@string/new_item_header"
 			android:windowSoftInputMode="stateVisible|adjustResize">
 			<intent-filter>
-				<action android:name="no.andsim.recipes.EDIT_ITEM" />
+				<action android:name="no.andsim.sbuddy.EDIT_ITEM" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+		<service android:name=".service.ProductServicervice"/>
 	</application>
 </manifest>

@@ -1,6 +1,8 @@
-package no.andsim.recipes.activity;
+package no.andsim.sbuddy.activity;
 
-import no.andsim.recipes.database.RecipeDbAdapter;
+import no.andsim.sbuddy.activity.R;
+import no.andsim.sbuddy.activity.service.ProductService;
+import no.andsim.sbuddy.database.RecipeDbAdapter;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,7 +19,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-public class ShoppingList extends ListActivity{
+public class ProductList extends ListActivity{
 	private RecipeDbAdapter dbHelper;
 	private static final int ACTIVITY_CREATE = 0;
 	private static final int ACTIVITY_EDIT = 1;
@@ -70,7 +72,14 @@ public class ShoppingList extends ListActivity{
 		case R.id.insert:
 			createRecipe();
 			return true;
+		case R.id.startService:
+			startService(new Intent(this, ProductService.class ));
+			break;
+		case R.id.stopService:
+			stopService(new Intent(this, ProductService.class));
+			break;
 		}
+		
 		return super.onOptionsItemSelected(item);
 	}
 

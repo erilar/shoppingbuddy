@@ -1,5 +1,6 @@
-package no.andsim.recipes.activity;
+package no.andsim.sbuddy.activity;
 
+import no.andsim.sbuddy.activity.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ public class MenuActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent("no.andsim.recipes.SHOPPINGLIST"));					
+					startActivity(new Intent("no.andsim.sbuddy.PRODUCTLIST"));					
 				}
 			});
 		 
@@ -27,7 +28,7 @@ public class MenuActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent("no.andsim.recipes.EDIT_ITEM"));					
+					startActivity(new Intent("no.andsim.sbuddy.EDIT_ITEM"));					
 				}
 			});
 		 
@@ -36,9 +37,10 @@ public class MenuActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent("no.andsim.recipes.VARESERVICE"));					
+					startActivity(new Intent("no.andsim.sbuddy.PRODUCTSERVICE"));					
 				}
 			});
 	 }
+	 
 	 
 }

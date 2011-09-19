@@ -1,8 +1,9 @@
-package no.andsim.recipes.activity;
+package no.andsim.sbuddy.activity;
 
-import no.andsim.recipes.database.RecipeDbAdapter;
-import no.andsim.recipes.model.Product;
-import no.andsim.recipes.ws.VareServiceClient;
+import no.andsim.sbuddy.activity.R;
+import no.andsim.sbuddy.database.RecipeDbAdapter;
+import no.andsim.sbuddy.model.Product;
+import no.andsim.sbuddy.ws.ProductWSClient;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -22,7 +23,7 @@ public class ItemDetails extends Activity {
 	private RecipeDbAdapter mDbHelper;
 	private String barcode;
 	private boolean checked;
-	private static final VareServiceClient vareServiceClient = new VareServiceClient();
+	private static final ProductWSClient vareServiceClient = new ProductWSClient();
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -137,7 +138,7 @@ public class ItemDetails extends Activity {
 
 	private void sendBarcodeToServer(String name) {
 		Product vare = new Product(barcode,name);
-		if(barcode != null && barcode.length()>1 && vareServiceClient.sendVareToWS(vare)){
+		if(barcode != null && barcode.length()>1 && vareServiceClient.sendProductToWS(vare)){
 			Toast.makeText(getApplicationContext(), "New barcode registered on server: "+barcode +" with name "+name, Toast.LENGTH_SHORT).show();
 		}
 	}

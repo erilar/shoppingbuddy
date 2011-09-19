@@ -1,4 +1,4 @@
-package no.andsim.recipes.model;
+package no.andsim.sbuddy.model;
 
 import java.util.Hashtable;
 
@@ -54,12 +54,12 @@ public class Product implements KvmSerializable {
 	public void getPropertyInfo(int arg0, Hashtable arg1, PropertyInfo info) {
 		if(arg0 == 0){
 			info.type = PropertyInfo.LONG_CLASS;
-			info.namespace = "http://andsim.vareservice.no/Vare";
+			info.namespace = "http://andsim.productservice.no/Product";
             info.name = "barcode";
 		}
 		else{
 			info.type= PropertyInfo.STRING_CLASS;
-			info.namespace = "http://andsim.vareservice.no/Vare";
+			info.namespace = "http://andsim.productservice.no/Product";
 			info.name="name";
 		}
 		
@@ -76,7 +76,7 @@ public class Product implements KvmSerializable {
 
 	@Override
 	public String toString() {
-		return "Vare [barcode=" + barcode + ", name=" + name + "]";
+		return "Product [barcode=" + barcode + ", name=" + name + "]";
 	}
 
 }

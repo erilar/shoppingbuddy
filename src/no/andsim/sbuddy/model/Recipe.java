@@ -1,4 +1,4 @@
-package no.andsim.recipes.model;
+package no.andsim.sbuddy.model;
 
 public class Recipe {
 

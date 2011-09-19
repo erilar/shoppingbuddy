@@ -1,4 +1,4 @@
-package no.andsim.recipes.database;
+package no.andsim.sbuddy.database;
 
 import android.content.ContentValues;
 import android.content.Context;

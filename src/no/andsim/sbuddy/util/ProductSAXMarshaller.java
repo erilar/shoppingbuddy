@@ -1,4 +1,4 @@
-package no.andsim.recipes.util;
+package no.andsim.sbuddy.util;
 
 import java.io.Reader;
 import java.io.StringReader;
@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import no.andsim.recipes.model.Product;
+import no.andsim.sbuddy.model.Product;
 
 import org.apache.xerces.parsers.SAXParser;
 import org.xml.sax.Attributes;
@@ -14,7 +14,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class VareSAXMarshaller extends DefaultHandler {
+public class ProductSAXMarshaller extends DefaultHandler {
 
 	private Product vare;
 

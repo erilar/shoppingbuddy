@@ -1,4 +1,4 @@
-package no.andsim.recipes.ws;
+package no.andsim.sbuddy.ws;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 
-public class VareServiceClientRS {
+public class ProductWSClientRS {
 
 
 	public static String connect(String url) {

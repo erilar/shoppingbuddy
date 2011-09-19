@@ -1,6 +1,7 @@
-package no.andsim.recipes.activity;
+package no.andsim.sbuddy.activity;
 
-import no.andsim.recipes.util.SplashThread;
+import no.andsim.sbuddy.activity.R;
+import no.andsim.sbuddy.util.SplashThread;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ public class StartActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.splash);
-		Intent nextActivity = new Intent("no.andsim.recipes.MENU");
+		Intent nextActivity = new Intent("no.andsim.sbuddy.MENU");
 		SplashThread logoSplash = new SplashThread(this, nextActivity, 1000);
 		logoSplash.start();
 	}

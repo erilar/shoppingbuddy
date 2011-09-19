@@ -1,4 +1,4 @@
-package no.andsim.recipes.database;
+package no.andsim.sbuddy.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
