@@ -1,9 +1,7 @@
 package no.andsim.sbuddy.activity;
 
-import no.andsim.sbuddy.activity.R;
 import no.andsim.sbuddy.database.RecipeDbAdapter;
 import no.andsim.sbuddy.model.Product;
-import no.andsim.sbuddy.ws.ProductWSClient;
 import no.andsim.sbuddy.ws.ProductWSClientRS;
 import android.app.Activity;
 import android.content.Intent;
