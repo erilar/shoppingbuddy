@@ -1,5 +1,8 @@
 package no.andsim.sbuddy.activity.service;
 
+import java.util.List;
+
+import no.andsim.sbuddy.model.Product;
 import no.andsim.sbuddy.ws.ProductWSClientRS;
 import android.app.Service;
 import android.content.Intent;
@@ -11,6 +14,8 @@ public class ProductService extends Service {
 	private static final String TAG = ProductService.class.getSimpleName();
 
 	private ProductGetter vareGetter;
+	
+	private final ProductWSClientRS clientRS = ProductWSClientRS.getInstance();
 	
 
 	@Override
@@ -58,8 +63,8 @@ public class ProductService extends Service {
 			while (isRunning) {
 				try {
 					Log.d(TAG, "ProductGetter running");
-					String varer = ProductWSClientRS.connect("http://vareservice.herokuapp.com/ProductServiceRS/products");
-					Log.d(TAG, "Got: "+ varer);
+					List<Product> varer =clientRS.getProductsFromService();
+					Log.d(TAG, "Got: "+ varer.size());
 					Thread.sleep(DELAY);
 				} catch (InterruptedException e) {
 					isRunning = false;

@@ -19,7 +19,7 @@
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".ProductList" android:label="@string/item_list_header">
+		<activity android:name=".ProductListActivity" android:label="@string/item_list_header">
 			<intent-filter>
 				<action android:name="no.andsim.sbuddy.PRODUCTLIST" />
 				<category android:name="android.intent.category.DEFAULT" />

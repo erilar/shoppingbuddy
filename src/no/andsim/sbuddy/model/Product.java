@@ -5,9 +5,13 @@ import java.util.Hashtable;
 import org.ksoap2.serialization.KvmSerializable;
 import org.ksoap2.serialization.PropertyInfo;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Product implements KvmSerializable {
 
+	@SerializedName("p.barcode")
 	private String barcode;
+	@SerializedName("p.name")
 	private String name;
 	
 	
