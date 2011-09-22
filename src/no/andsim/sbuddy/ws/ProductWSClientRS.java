@@ -28,7 +28,7 @@ public class ProductWSClientRS{
 
 	private static final String className = ProductWSClientRS.class.getSimpleName();
 	
-	private String baseUrl = "http://172.16.6.161:9191/ProductServiceRS/products";
+	private String baseUrl = "http://vareservice.herokuapp.com/ProductServiceRS/products";
 	private String productUrl = "/product";
 	
 	private static ProductWSClientRS client;
