@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/listcolor"
     >
 <TextView  
     android:layout_width="fill_parent" 
@@ -11,6 +12,7 @@
     android:textSize="25dp"
     android:textStyle="bold"
     android:gravity="center"
+    android:textColor="@color/black"
     />
 <Button android:text="@string/showItemsBtnTxt" android:id="@+id/showItemsBtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
 <Button android:text="@string/newItemsBtnTxt" android:id="@+id/newItemsBtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
