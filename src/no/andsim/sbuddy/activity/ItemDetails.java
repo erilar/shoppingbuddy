@@ -1,6 +1,6 @@
 package no.andsim.sbuddy.activity;
 
-import no.andsim.sbuddy.database.RecipeDbAdapter;
+import no.andsim.sbuddy.database.ProductDbAdapter;
 import no.andsim.sbuddy.model.Product;
 import no.andsim.sbuddy.ws.ProductWSClientRS;
 import android.app.Activity;
@@ -19,14 +19,14 @@ public class ItemDetails extends Activity {
 	private EditText mScanText;
 	private CheckBox mBoughtCheck;
 	private Long mRowId;
-	private RecipeDbAdapter mDbHelper;
+	private ProductDbAdapter mDbHelper;
 	private String barcode;
 	private boolean checked;
 	private final ProductWSClientRS clientRS = ProductWSClientRS.getInstance();
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		mDbHelper = new RecipeDbAdapter(this);
+		mDbHelper = new ProductDbAdapter(this);
 		mDbHelper.open();
 		setContentView(R.layout.item_edit);
 		mNameText = (EditText) findViewById(R.id.item_edit_name);
@@ -38,9 +38,9 @@ public class ItemDetails extends Activity {
 		Button scanButton = (Button) findViewById(R.id.item_scan_button);
 		mRowId = null;
 		Bundle extras = getIntent().getExtras();
-		mRowId = (bundle == null) ? null : (Long) bundle.getSerializable(RecipeDbAdapter.KEY_ROWID);
+		mRowId = (bundle == null) ? null : (Long) bundle.getSerializable(ProductDbAdapter.KEY_ROWID);
 		if (extras != null) {
-			mRowId = extras.getLong(RecipeDbAdapter.KEY_ROWID);
+			mRowId = extras.getLong(ProductDbAdapter.KEY_ROWID);
 		}
 		populateFields();
 		confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -88,14 +88,14 @@ public class ItemDetails extends Activity {
 	
 	private void populateFields() {
 		if (mRowId != null) {
-			Cursor todo = mDbHelper.fetchRecipe(mRowId);
+			Cursor todo = mDbHelper.fetchProduct(mRowId);
 			startManagingCursor(todo);
 
-			mNameText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_NAME)));
-			mBodyText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_DESCRIPTION)));
-			mScanText.setText(todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_BARCODE)));
-			barcode = todo.getString(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_BARCODE));
-			checked = 1 == todo.getInt(todo.getColumnIndexOrThrow(RecipeDbAdapter.KEY_CHECKED));
+			mNameText.setText(todo.getString(todo.getColumnIndexOrThrow(ProductDbAdapter.KEY_NAME)));
+			mBodyText.setText(todo.getString(todo.getColumnIndexOrThrow(ProductDbAdapter.KEY_DESCRIPTION)));
+			mScanText.setText(todo.getString(todo.getColumnIndexOrThrow(ProductDbAdapter.KEY_BARCODE)));
+			barcode = todo.getString(todo.getColumnIndexOrThrow(ProductDbAdapter.KEY_BARCODE));
+			checked = 1 == todo.getInt(todo.getColumnIndexOrThrow(ProductDbAdapter.KEY_CHECKED));
 			mBoughtCheck.setChecked(checked);
 		}
 	}
@@ -103,7 +103,7 @@ public class ItemDetails extends Activity {
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		saveState();
-		outState.putSerializable(RecipeDbAdapter.KEY_ROWID, mRowId);
+		outState.putSerializable(ProductDbAdapter.KEY_ROWID, mRowId);
 	}
 
 	@Override
@@ -124,12 +124,12 @@ public class ItemDetails extends Activity {
 		 checked = "1".equals(mBoughtCheck.getText().toString());
 
 		if (mRowId == null) {
-			long id = mDbHelper.createRecipe(name, description, barcode);
+			long id = mDbHelper.createProduct(name, description, barcode);
 			if (id > 0) {
 				mRowId = id;
 			}
 		} else {
-			mDbHelper.updateRecipe(mRowId, name, description, barcode, checked);
+			mDbHelper.updateProduct(mRowId, name, description, barcode, checked);
 		}
 
 	}

@@ -2,7 +2,7 @@ package no.andsim.sbuddy.activity;
 
 import no.andsim.sbuddy.activity.R;
 import no.andsim.sbuddy.activity.service.ProductService;
-import no.andsim.sbuddy.database.RecipeDbAdapter;
+import no.andsim.sbuddy.database.ProductDbAdapter;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,7 +20,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class ProductListActivity extends ListActivity{
-	private RecipeDbAdapter dbHelper;
+	private ProductDbAdapter dbHelper;
 	private static final int ACTIVITY_CREATE = 0;
 	private static final int ACTIVITY_EDIT = 1;
 	private static final int DELETE_ID = Menu.FIRST + 1;
@@ -32,7 +32,7 @@ public class ProductListActivity extends ListActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.item_list);
 		this.getListView().setDividerHeight(2);
-		dbHelper = new RecipeDbAdapter(this);
+		dbHelper = new ProductDbAdapter(this);
 		dbHelper.open();
 		fillData();
 		registerForContextMenu(getListView());
@@ -60,7 +60,7 @@ public class ProductListActivity extends ListActivity{
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.insert:
-			createRecipe();
+			createProduct();
 			return true;
 		}
 		return super.onMenuItemSelected(featureId, item);
@@ -70,7 +70,7 @@ public class ProductListActivity extends ListActivity{
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.insert:
-			createRecipe();
+			createProduct();
 			return true;
 		case R.id.startService:
 			startService(new Intent(this, ProductService.class ));
@@ -89,14 +89,14 @@ public class ProductListActivity extends ListActivity{
 		case DELETE_ID:
 			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
 					.getMenuInfo();
-			dbHelper.deleteRecipe(info.id);
+			dbHelper.deleteProduct(info.id);
 			fillData();
 			return true;
 		}
 		return super.onContextItemSelected(item);
 	}
 
-	private void createRecipe() {
+	private void createProduct() {
 		Intent i = new Intent(this, ItemDetails.class);
 		startActivityForResult(i, ACTIVITY_CREATE);
 	}
@@ -106,7 +106,7 @@ public class ProductListActivity extends ListActivity{
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		Intent i = new Intent(this, ItemDetails.class);
-		i.putExtra(RecipeDbAdapter.KEY_ROWID, id);
+		i.putExtra(ProductDbAdapter.KEY_ROWID, id);
 		// Activity returns an result if called with startActivityForResult
 		
 		startActivityForResult(i, ACTIVITY_EDIT);
@@ -126,11 +126,11 @@ public class ProductListActivity extends ListActivity{
 		         String contents = intent.getStringExtra("SCAN_RESULT");
 //		         String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
 		         
-		       Cursor cRecepies = dbHelper.fetchAllRecipes();
+		       Cursor cRecepies = dbHelper.fetchAllProducts();
 		       cRecepies.moveToFirst();
 		        while (cRecepies.isAfterLast() == false) {
 		            if(contents.equals(cRecepies.getString(3))){
-		            	dbHelper.updateRecipe(cRecepies.getInt(0),cRecepies.getString(1), cRecepies.getString(2),cRecepies.getString(3), true);
+		            	dbHelper.updateProduct(cRecepies.getInt(0),cRecepies.getString(1), cRecepies.getString(2),cRecepies.getString(3), true);
 		            	Toast.makeText(getApplicationContext(), "Scanned: "+ contents + " found: "+ cRecepies.getString(3) +" - "+ cRecepies.getString(1) , Toast.LENGTH_SHORT).show();
 		            }
 		            cRecepies.moveToNext();
@@ -148,10 +148,10 @@ public class ProductListActivity extends ListActivity{
 	}
 
 	private void fillData() {
-		cursor = dbHelper.fetchAllRecipes();
+		cursor = dbHelper.fetchAllProducts();
 		startManagingCursor(cursor);
 
-		String[] from = new String[] { RecipeDbAdapter.KEY_NAME, RecipeDbAdapter.KEY_CHECKED };
+		String[] from = new String[] { ProductDbAdapter.KEY_NAME, ProductDbAdapter.KEY_CHECKED };
 		int[] to = new int[] { R.id.label, R.id.row_bought_checked };
 
 		// Now create an array adapter and set it to display using our row
