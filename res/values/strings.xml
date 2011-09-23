@@ -15,7 +15,7 @@
     <string name="item_edit_name">Name</string>
     <string name="item_edit_description">Description</string>
     <string name="item_edit_confirm">Confirm</string>
-    <string name="item_edit_scan">Scan barcode</string>
+    <string name="item_edit_scan">Scan</string>
     <color name="listcolor">#FFE87C</color>
     <color name="black">#000000</color>
 </resources>

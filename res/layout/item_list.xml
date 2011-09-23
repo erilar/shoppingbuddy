@@ -3,10 +3,11 @@
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:background="@color/listcolor">
 	<LinearLayout android:id="@+id/ScanCheckLinearLayout"
-		android:orientation="horizontal" android:layout_width="fill_parent" android:gravity="right"
-		android:layout_height="wrap_content">
-		<Button android:text="@string/item_edit_scan" android:id="@+id/check_scan_button"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+		android:orientation="horizontal" android:layout_width="fill_parent"
+		android:gravity="right" android:layout_height="wrap_content">
+		<Button android:id="@+id/check_scan_button"
+			android:layout_width="75dp" android:layout_height="wrap_content"
+			android:padding="10dp" android:background="@drawable/scan_button"></Button>
 	</LinearLayout>
 	<ListView android:id="@android:id/list" android:layout_width="match_parent"
 		android:layout_gravity="top" android:layout_height="wrap_content"></ListView>

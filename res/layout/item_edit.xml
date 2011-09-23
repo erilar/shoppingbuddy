@@ -19,15 +19,17 @@
 		android:layout_height="fill_parent" android:layout_weight="1"
 		android:id="@+id/item_edit_description" android:hint="Description"
 		android:gravity="top"></EditText>
-	<CheckBox android:text="Bought" android:id="@+id/bought_check" android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
+	<CheckBox android:text="Bought" android:id="@+id/bought_check"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></CheckBox>
 	<LinearLayout android:id="@+id/EditButtonLinearLayout"
 		android:orientation="horizontal" android:layout_width="fill_parent"
 		android:layout_height="wrap_content">
 		<Button android:id="@+id/item_edit_button"
 			android:layout_height="wrap_content" android:text="@string/item_edit_confirm"
 			android:layout_width="wrap_content"></Button>
-		<Button android:text="@string/item_edit_scan" android:id="@+id/item_scan_button"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+		<Button android:id="@+id/item_scan_button" android:padding="10dp"
+			android:layout_width="75dp" android:layout_height="wrap_content"
+			android:background="@drawable/scan_button"></Button>
 	</LinearLayout>
 
 </LinearLayout>
