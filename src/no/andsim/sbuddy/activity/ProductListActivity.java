@@ -97,7 +97,7 @@ public class ProductListActivity extends ListActivity{
 	}
 
 	private void createProduct() {
-		Intent i = new Intent(this, ItemDetails.class);
+		Intent i = new Intent(this, ProductDetailsActivity.class);
 		startActivityForResult(i, ACTIVITY_CREATE);
 	}
 
@@ -105,7 +105,7 @@ public class ProductListActivity extends ListActivity{
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		Intent i = new Intent(this, ItemDetails.class);
+		Intent i = new Intent(this, ProductDetailsActivity.class);
 		i.putExtra(ProductDbAdapter.KEY_ROWID, id);
 		// Activity returns an result if called with startActivityForResult
 		

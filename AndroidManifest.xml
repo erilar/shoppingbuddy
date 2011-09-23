@@ -32,7 +32,7 @@
 			</intent-filter>
 		</activity>
 
-		<activity android:name="no.andsim.sbuddy.activity.ItemDetails" android:label="@string/new_item_header"
+		<activity android:name=".ProductDetailsActivity" android:label="@string/new_item_header"
 			android:windowSoftInputMode="stateVisible|adjustResize">
 			<intent-filter>
 				<action android:name="no.andsim.sbuddy.EDIT_ITEM" />
