@@ -13,8 +13,11 @@
     android:textStyle="bold"
     android:gravity="center"
     android:textColor="@color/black"
+    android:typeface="serif"
+    android:paddingBottom="40dp"
+    android:paddingTop="20dp"
     />
-<Button android:text="@string/showItemsBtnTxt" android:id="@+id/showItemsBtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
-<Button android:text="@string/newItemsBtnTxt" android:id="@+id/newItemsBtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
-<Button android:text="@string/remoteItemListBtnTxt" android:id="@+id/serviceBtn" android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+<Button android:text="@string/showItemsBtnTxt" android:id="@+id/showItemsBtn" android:layout_width="200dp" android:layout_height="wrap_content" android:layout_gravity="center" android:layout_margin="10dp"></Button>
+<Button android:text="@string/newItemsBtnTxt" android:id="@+id/newItemsBtn" android:layout_width="200dp" android:layout_height="wrap_content" android:layout_gravity="center" android:layout_margin="10dp"></Button>
+<Button android:text="@string/remoteItemListBtnTxt" android:id="@+id/serviceBtn" android:layout_width="200dp" android:layout_height="wrap_content" android:layout_gravity="center" android:layout_margin="10dp"></Button>
 </LinearLayout>
