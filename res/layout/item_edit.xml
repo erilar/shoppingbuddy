@@ -26,7 +26,7 @@
 		android:layout_height="wrap_content" android:gravity="center">
 		<Button android:id="@+id/item_edit_button"
 			android:layout_height="wrap_content" android:text="@string/item_edit_confirm"
-			android:layout_width="wrap_content" android:layout_margin="10dp"></Button>
+			android:layout_width="wrap_content" android:layout_margin="10dp" android:background="@drawable/menu_button"></Button>
 		<Button android:id="@+id/item_scan_button"
 			android:layout_width="75dp" android:layout_height="wrap_content"
 			android:background="@drawable/scan_button" android:layout_margin="10dp"></Button>

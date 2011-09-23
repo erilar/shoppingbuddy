@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Handle Buddy</string>
-    <string name="item_list_header">Product List</string>
-    <string name="new_item_header">Register New Item or Product</string>
-    <string name="header">Start Menu</string>
-    <string name="newItemsBtnTxt">New Product</string>
-    <string name="showItemsBtnTxt">Product List</string>
-    <string name="remoteItemListBtnTxt">Products on Server</string>
-    <string name="no_items">Currently there are no Product</string>
-    <string name="menu_insert">Add Product</string>
-    <string name="menu_delete">Delete Product</string>
-    <string name="item_name">Name</string>
-    <string name="item_description">Description</string>
-    <string name="item_edit_name">Name</string>
-    <string name="item_edit_description">Description</string>
-    <string name="item_edit_confirm">Confirm</string>
-    <string name="item_edit_scan">Scan</string>
-    <color name="listcolor">#fffff0</color>
-    <color name="black">#000000</color>
+	<string name="app_name">Handle Buddy</string>
+	<string name="item_list_header">Product List</string>
+	<string name="new_item_header">Register New Item or Product</string>
+	<string name="header">Start Menu</string>
+	<string name="newItemsBtnTxt">New Product</string>
+	<string name="showItemsBtnTxt">Product List</string>
+	<string name="remoteItemListBtnTxt">Products on Server</string>
+	<string name="no_items">Currently there are no Product</string>
+	<string name="menu_insert">Add Product</string>
+	<string name="menu_delete">Delete Product</string>
+	<string name="item_name">Name</string>
+	<string name="item_description">Description</string>
+	<string name="item_edit_name">Name</string>
+	<string name="item_edit_description">Description</string>
+	<string name="item_edit_confirm">Confirm</string>
+	<string name="item_edit_scan">Scan</string>
+	<color name="listcolor">#ffffff</color>
+	<color name="black">#000000</color>
+	<color name="buttonStartColor">#838b83</color>
+	<color name="buttonStopColor">#f0fff0</color>
+	<color name="buttonStrokeColor">#696969</color>
+	<color name="focusedStartColor">#f0fff0</color>
+	<color name="focusedStopColor">#c1cdc1</color>
+	<color name="pressedStartColor">#838b83</color>
+	<color name="pressedStopColor">#2f4f4f</color>
 </resources>
