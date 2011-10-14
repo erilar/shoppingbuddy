@@ -1,10 +1,11 @@
-package no.andsim.sbuddy.activity;
+package no.itera.sbuddy.activity;
 
 import java.io.StringWriter;
 import java.util.List;
 
-import no.andsim.sbuddy.model.Product;
-import no.andsim.sbuddy.ws.ProductWSClientRS;
+import no.itera.sbuddy.activity.R;
+import no.itera.sbuddy.model.Product;
+import no.itera.sbuddy.ws.ProductWSClientRS;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;

@@ -1,4 +1,4 @@
-package no.andsim.sbuddy.ws;
+package no.itera.sbuddy.ws;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,16 +6,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import no.andsim.sbuddy.model.JSONProductEnvelope;
-import no.andsim.sbuddy.model.JSONProductListEnvelope;
-import no.andsim.sbuddy.model.Product;
+import no.itera.sbuddy.model.JSONProductEnvelope;
+import no.itera.sbuddy.model.JSONProductListEnvelope;
+import no.itera.sbuddy.model.Product;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -29,7 +29,6 @@ public class ProductWSClientRS{
 	private static final String className = ProductWSClientRS.class.getSimpleName();
 	
 	private String baseUrl = "http://vareservice.herokuapp.com/ProductServiceRS/products";
-	private String productUrl = "/product";
 	
 	private static ProductWSClientRS client;
 	private final HttpClient httpclient = new DefaultHttpClient();
@@ -70,13 +69,13 @@ public class ProductWSClientRS{
 		return null;
 	}
 	
-	private boolean putProduct(String json){
-		HttpPut httpPut = new HttpPut(baseUrl+productUrl);
+	private boolean postProduct(String json){
+		HttpPost httpPost = new HttpPost(baseUrl);
 		try{
 			StringEntity entity = new StringEntity(json, "UTF-8");
 		    entity.setContentType("application/json");
-		    httpPut.setEntity(entity);
-			httpclient.execute(httpPut);
+		    httpPost.setEntity(entity);
+			httpclient.execute(httpPost);
 			return true;
 		} catch (ClientProtocolException e) {
 			Log.e(className, e.getMessage());
@@ -112,10 +111,10 @@ public class ProductWSClientRS{
 		return null;
 	}
 	
-	public boolean putProductOnServer(Product product){
+	public boolean addProductOnServer(Product product){
 		try {
 			String json =  gson.toJson(wrapProduct(product));
-			return putProduct(json);
+			return postProduct(json);
 			
 		} catch (JsonParseException e) {
 			Log.w(className, e.getMessage());

@@ -1,6 +1,6 @@
-package no.andsim.sbuddy.activity;
+package no.itera.sbuddy.activity;
 
-import no.andsim.sbuddy.activity.R;
+import no.itera.sbuddy.activity.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ public class MenuActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent("no.andsim.sbuddy.PRODUCTLIST"));					
+					startActivity(new Intent("no.itera.sbuddy.PRODUCTLIST"));					
 				}
 			});
 		 
@@ -28,7 +28,7 @@ public class MenuActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent("no.andsim.sbuddy.EDIT_ITEM"));					
+					startActivity(new Intent("no.itera.sbuddy.EDIT_ITEM"));					
 				}
 			});
 		 
@@ -37,7 +37,7 @@ public class MenuActivity extends Activity {
 				
 				@Override
 				public void onClick(View v) {
-					startActivity(new Intent("no.andsim.sbuddy.PRODUCTSERVICE"));					
+					startActivity(new Intent("no.itera.sbuddy.PRODUCTSERVICE"));					
 				}
 			});
 	 }

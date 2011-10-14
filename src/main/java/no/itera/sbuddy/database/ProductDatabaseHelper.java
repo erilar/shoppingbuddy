@@ -1,4 +1,4 @@
-package no.andsim.sbuddy.database;
+package no.itera.sbuddy.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

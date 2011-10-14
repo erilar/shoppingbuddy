@@ -1,4 +1,4 @@
-package no.andsim.sbuddy.util;
+package no.itera.sbuddy.util;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -1,8 +1,8 @@
-package no.andsim.sbuddy.activity;
+package no.itera.sbuddy.activity;
 
-import no.andsim.sbuddy.activity.R;
-import no.andsim.sbuddy.activity.service.ProductService;
-import no.andsim.sbuddy.database.ProductDbAdapter;
+import no.itera.sbuddy.activity.R;
+import no.itera.sbuddy.activity.service.ProductService;
+import no.itera.sbuddy.database.ProductDbAdapter;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;

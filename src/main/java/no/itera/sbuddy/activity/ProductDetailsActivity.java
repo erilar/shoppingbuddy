@@ -1,8 +1,9 @@
-package no.andsim.sbuddy.activity;
+package no.itera.sbuddy.activity;
 
-import no.andsim.sbuddy.database.ProductDbAdapter;
-import no.andsim.sbuddy.model.Product;
-import no.andsim.sbuddy.ws.ProductWSClientRS;
+import no.itera.sbuddy.activity.R;
+import no.itera.sbuddy.database.ProductDbAdapter;
+import no.itera.sbuddy.model.Product;
+import no.itera.sbuddy.ws.ProductWSClientRS;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -136,7 +137,7 @@ public class ProductDetailsActivity extends Activity {
 
 	private void sendBarcodeToServer(String name) {
 		Product vare = new Product(barcode,name);
-		if(barcode != null && barcode.length()>1 && clientRS.putProductOnServer(vare)){
+		if(barcode != null && barcode.length()>1 && clientRS.addProductOnServer(vare)){
 			Toast.makeText(getApplicationContext(), "New barcode registered on server: "+barcode +" with name "+name, Toast.LENGTH_SHORT).show();
 		}
 	}

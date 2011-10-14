@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="no.andsim.sbuddy.activity" android:versionCode="1"
+	package="no.itera.sbuddy.activity" android:versionCode="1"
 	android:versionName="1.0">
 	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
 	<uses-sdk android:minSdkVersion="10" />
@@ -15,30 +15,30 @@
 		</activity>
 		<activity android:name=".MenuActivity" android:label="@string/app_name">
 			<intent-filter>
-				<action android:name="no.andsim.sbuddy.MENU" />
+				<action android:name="no.itera.sbuddy.MENU" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
 		<activity android:name=".ProductListActivity" android:label="@string/item_list_header">
 			<intent-filter>
-				<action android:name="no.andsim.sbuddy.PRODUCTLIST" />
+				<action android:name="no.itera.sbuddy.PRODUCTLIST" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
 		<activity android:name=".WSClientActivity" android:label="@string/app_name">
 			<intent-filter>
-				<action android:name="no.andsim.sbuddy.PRODUCTSERVICE" />
+				<action android:name="no.itera.sbuddy.PRODUCTSERVICE" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
 
-		<activity android:name=".ProductDetailsActivity" android:label="@string/new_item_header"
+		<activity android:name="no.itera.sbuddy.activity.ProductDetailsActivity" android:label="@string/new_item_header"
 			android:windowSoftInputMode="stateVisible|adjustResize">
 			<intent-filter>
-				<action android:name="no.andsim.sbuddy.EDIT_ITEM" />
+				<action android:name="no.itera.sbuddy.EDIT_ITEM" />
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
-		<service android:name=".service.ProductService"/>
+		<service android:name="no.itera.sbuddy.activity.service.ProductService"/>
 	</application>
 </manifest>

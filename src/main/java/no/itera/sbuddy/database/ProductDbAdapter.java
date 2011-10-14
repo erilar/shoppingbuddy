@@ -1,4 +1,4 @@
-package no.andsim.sbuddy.database;
+package no.itera.sbuddy.database;
 
 import android.content.ContentValues;
 import android.content.Context;

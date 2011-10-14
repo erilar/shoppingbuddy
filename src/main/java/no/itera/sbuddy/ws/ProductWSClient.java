@@ -1,8 +1,8 @@
-package no.andsim.sbuddy.ws;
+package no.itera.sbuddy.ws;
 
 import java.io.IOException;
 
-import no.andsim.sbuddy.model.Product;
+import no.itera.sbuddy.model.Product;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;

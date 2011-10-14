@@ -1,4 +1,4 @@
-package no.andsim.sbuddy.model;
+package no.itera.sbuddy.model;
 
 import java.util.ArrayList;
 import java.util.List;

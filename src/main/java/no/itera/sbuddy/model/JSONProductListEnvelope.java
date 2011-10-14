@@ -1,4 +1,4 @@
-package no.andsim.sbuddy.model;
+package no.itera.sbuddy.model;
 
 import com.google.gson.annotations.SerializedName;
 

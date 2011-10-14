@@ -1,4 +1,4 @@
-package no.andsim.sbuddy.util;
+package no.itera.sbuddy.util;
 
 import java.io.Reader;
 import java.io.StringReader;
@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import no.andsim.sbuddy.model.Product;
+import no.itera.sbuddy.model.Product;
 
 import org.apache.xerces.parsers.SAXParser;
 import org.xml.sax.Attributes;

@@ -1,9 +1,9 @@
-package no.andsim.sbuddy.activity.service;
+package no.itera.sbuddy.activity.service;
 
 import java.util.List;
 
-import no.andsim.sbuddy.model.Product;
-import no.andsim.sbuddy.ws.ProductWSClientRS;
+import no.itera.sbuddy.model.Product;
+import no.itera.sbuddy.ws.ProductWSClientRS;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
