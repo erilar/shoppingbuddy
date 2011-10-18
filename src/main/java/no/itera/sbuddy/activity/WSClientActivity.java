@@ -5,14 +5,14 @@ import java.util.List;
 
 import no.itera.sbuddy.activity.R;
 import no.itera.sbuddy.model.Product;
-import no.itera.sbuddy.ws.ProductWSClientRS;
+import no.itera.sbuddy.ws.ProductWSClientRest;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class WSClientActivity extends Activity {
 	
-	private final ProductWSClientRS clientRS = ProductWSClientRS.getInstance();
+	private final ProductWSClientRest clientRS = ProductWSClientRest.getInstance();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

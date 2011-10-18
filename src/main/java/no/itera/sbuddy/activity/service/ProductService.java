@@ -3,7 +3,7 @@ package no.itera.sbuddy.activity.service;
 import java.util.List;
 
 import no.itera.sbuddy.model.Product;
-import no.itera.sbuddy.ws.ProductWSClientRS;
+import no.itera.sbuddy.ws.ProductWSClientRest;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -15,7 +15,7 @@ public class ProductService extends Service {
 
 	private ProductGetter vareGetter;
 	
-	private final ProductWSClientRS clientRS = ProductWSClientRS.getInstance();
+	private final ProductWSClientRest clientRS = ProductWSClientRest.getInstance();
 	
 
 	@Override

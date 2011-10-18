@@ -24,22 +24,22 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
-public class ProductWSClientRS{
+public class ProductWSClientRest{
 
-	private static final String className = ProductWSClientRS.class.getSimpleName();
+	private static final String className = ProductWSClientRest.class.getSimpleName();
 	
 	private String baseUrl = "http://vareservice.herokuapp.com/ProductServiceRS/products";
 	
-	private static ProductWSClientRS client;
+	private static ProductWSClientRest client;
 	private final HttpClient httpclient = new DefaultHttpClient();
 	private final Gson gson = new Gson();
 
-	private ProductWSClientRS() {
+	private ProductWSClientRest() {
 	}
 
-	public static ProductWSClientRS getInstance() {
+	public static ProductWSClientRest getInstance() {
 		if (client == null) {
-			client = new ProductWSClientRS();
+			client = new ProductWSClientRest();
 		}
 		return client;
 	}

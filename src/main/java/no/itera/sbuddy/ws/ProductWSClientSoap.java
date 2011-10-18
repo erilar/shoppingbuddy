@@ -12,7 +12,7 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
-public class ProductWSClient {
+public class ProductWSClientSoap {
 	
 	private static final String NAMESPACE = "http://service.pservice.andsim.no/";
 	private static String URL = //"http://172.16.9.190:9191/ProductService?wsdl";

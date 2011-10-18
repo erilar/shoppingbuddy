@@ -3,7 +3,7 @@ package no.itera.sbuddy.activity;
 import no.itera.sbuddy.activity.R;
 import no.itera.sbuddy.database.ProductDbAdapter;
 import no.itera.sbuddy.model.Product;
-import no.itera.sbuddy.ws.ProductWSClientRS;
+import no.itera.sbuddy.ws.ProductWSClientRest;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -23,7 +23,7 @@ public class ProductDetailsActivity extends Activity {
 	private ProductDbAdapter mDbHelper;
 	private String barcode;
 	private boolean checked;
-	private final ProductWSClientRS clientRS = ProductWSClientRS.getInstance();
+	private final ProductWSClientRest clientRS = ProductWSClientRest.getInstance();
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);

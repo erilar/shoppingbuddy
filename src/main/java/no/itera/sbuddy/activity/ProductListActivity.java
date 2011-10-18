@@ -124,7 +124,6 @@ public class ProductListActivity extends ListActivity{
 		  if (requestCode == 0) {
 		      if (resultCode == RESULT_OK) {
 		         String contents = intent.getStringExtra("SCAN_RESULT");
-//		         String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
 		         
 		       Cursor cRecepies = dbHelper.fetchAllProducts();
 		       cRecepies.moveToFirst();
@@ -136,9 +135,7 @@ public class ProductListActivity extends ListActivity{
 		            cRecepies.moveToNext();
 		        }
 		        fillData();
-		         // Handle successful scan
-		        // mScanText.setText(contents);
-		         //barcode = contents;
+		  
 		         
 		      } else if (resultCode == RESULT_CANCELED) {
 		         // Handle cancel
